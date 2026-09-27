@@ -1,0 +1,56 @@
+---
+description: Centralize dependency versions in categorized pnpm catalogs
+globs: package.json,pnpm-workspace.yaml,**/package.json
+alwaysApply: true
+---
+
+# pnpm catalogs
+
+Dependency versions live in `pnpm-workspace.yaml` under `catalogs`, grouped by category. Workspace `package.json` files reference them with `"catalog:<category>"`, not inline ranges.
+
+## Catalog categories (fixed order)
+
+When editing `pnpm-workspace.yaml`, keep categories in this order:
+
+1. **nx** — `nx`, `@nx/*` (same version across the group)
+2. **build** — compilers, bundlers, SWC, `typescript`, `tslib`
+3. **types** — `@types/*`
+4. **format** — Prettier, style-related tools
+5. **test** — Vitest, Jest, Testing Library, Playwright (add when used)
+6. **lint** — ESLint and plugins (add when used)
+7. **runtime** — shared production deps used by multiple apps (add when used)
+
+Add new categories only when the above buckets do not fit; append them after **runtime** and document them in this rule.
+
+Within each category, list packages **alphabetically** (`@scope/pkg` before unscoped names; compare full package name).
+
+## Adding or upgrading a dependency
+
+1. Pick the correct category in `pnpm-workspace.yaml` → `catalogs`.
+2. Insert or update the entry in **alphabetical** order inside that category.
+3. In the relevant `package.json`, set `"package-name": "catalog:<category>"`.
+4. Mirror the same category order in `devDependencies` / `dependencies` blocks (nx → build → types → format → test → lint → runtime).
+5. Run `pnpm install` from the repo root.
+
+## Rules
+
+- No literal version ranges in workspace `package.json` when the package is in a catalog.
+- Bump `nx` and every `@nx/*` entry in **nx** together.
+- Prefer an existing category; do not create a one-package catalog unless necessary.
+- For patched transitive deps (security), add the fixed version under the right `catalogs` entry and pin it in root `pnpm-workspace.yaml` → `overrides` (pnpm 12; not `package.json`). Example: `smol-toml` in **build** with `overrides: { smol-toml: catalog:build }`.
+
+## Example
+
+```yaml
+catalogs:
+  runtime:
+    react: ^19.0.0
+```
+
+```json
+{
+  "dependencies": {
+    "react": "catalog:runtime"
+  }
+}
+```

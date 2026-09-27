@@ -1,7 +1,36 @@
 packages:
-  - 'apps/*'
-  - 'packages/*'
+    - 'apps/*'
+    - 'packages/*'
+
+autoInstallPeers: true
+engineStrict: true
 
 allowBuilds:
-  '@swc/core': true
-  nx: true
+    '@swc/core': true
+    nx: true
+
+catalogs:
+    # Nx workspace tooling (@nx/* and nx share the same version)
+    nx:
+        '@nx/js': ^23.2.1
+        nx: ^23.2.1
+
+    # Compilation and runtime helpers (SWC, TypeScript, tslib)
+    build:
+        '@swc-node/register': ^1.12.1
+        '@swc/core': ^1.16.2
+        '@swc/helpers': ^0.5.23
+        smol-toml: ^1.7.1
+        tslib: ^2.3.0
+        typescript: ~6.0.3
+
+    # @types/* packages
+    types:
+        '@types/node': ^26.6.3
+
+    # Formatting and style
+    format:
+        prettier: ^3.8.1
+
+overrides:
+    smol-toml: catalog:build

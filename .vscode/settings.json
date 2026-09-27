@@ -1,0 +1,12 @@
+{
+    "search.exclude": {
+        "**/.next": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "pnpm-lock.yaml": true
+    },
+    "npmx.ignore.vulnerability": ["nx", "@nx/js"],
+    "cSpell.words": ["lufy", "nodenext", "smol"]
+}
