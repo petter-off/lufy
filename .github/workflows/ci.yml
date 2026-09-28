@@ -1,52 +1,52 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
 
 permissions:
-  contents: read
+    contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  main:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          filter: tree:0
-          fetch-depth: 0
+    main:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                  filter: tree:0
+                  fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 12.6.0
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 12.6.0
 
-      - name: Setup Node
-        uses: actions/setup-node@v5
-        with:
-          node-version-file: .node-version
-          cache: pnpm
+            - name: Setup Node
+              uses: actions/setup-node@v5
+              with:
+                  node-version-file: .node-version
+                  cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      - name: Set Nx SHAs for affected commands
-        uses: nrwl/nx-set-shas@v5
+            - name: Set Nx SHAs for affected commands
+              uses: nrwl/nx-set-shas@v5
 
-      - name: Check formatting
-        run: pnpm nx format:check --base=$NX_BASE --head=$NX_HEAD
+            - name: Check formatting
+              run: pnpm nx format:check --base=$NX_BASE --head=$NX_HEAD
 
-      - name: Check TypeScript project references
-        run: pnpm nx sync:check
+            - name: Check TypeScript project references
+              run: pnpm nx sync:check
 
-      - name: Lint, test, build, and typecheck (affected)
-        run: pnpm nx affected -t lint test build typecheck --parallel=3
+            - name: Lint, test, build, and typecheck (affected)
+              run: pnpm nx affected -t lint test build typecheck --parallel=3
