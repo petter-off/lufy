@@ -25,19 +25,12 @@ jobs:
                   filter: tree:0
                   fetch-depth: 0
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+            - name: Setup pnpm and Node
+              uses: pnpm/setup@v3
               with:
                   version: 12.6.0
-
-            - name: Setup Node
-              uses: actions/setup-node@v5
-              with:
-                  node-version-file: .node-version
-                  cache: pnpm
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+                  cache: true
+                  require-lockfile: true
 
             - name: Set Nx SHAs for affected commands
               uses: nrwl/nx-set-shas@v5
