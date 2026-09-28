@@ -6,8 +6,11 @@ autoInstallPeers: true
 engineStrict: true
 
 allowBuilds:
+    '@parcel/watcher': true
     '@swc/core': true
     nx: true
+    sharp: true
+    unrs-resolver: true
 
 catalogs:
     # Nx workspace tooling (@nx/* and nx share the same version)
