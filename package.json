@@ -5,28 +5,23 @@
     "scripts": {},
     "private": true,
     "devDependencies": {
-        "@nx/eslint": "23.2.1",
+        "@nx/eslint": "catalog:nx",
         "@nx/js": "catalog:nx",
-        "@nx/next": "23.2.1",
-        "@nx/node": "23.2.1",
+        "@nx/next": "catalog:nx",
+        "@nx/node": "catalog:nx",
+        "nx": "catalog:nx",
         "@swc-node/register": "catalog:build",
         "@swc/core": "catalog:build",
         "@swc/helpers": "catalog:build",
-        "@types/node": "catalog:types",
-        "eslint": "^9.8.0",
-        "nx": "catalog:nx",
-        "prettier": "catalog:format",
         "tslib": "catalog:build",
-        "typescript": "catalog:build"
+        "typescript": "catalog:build",
+        "@types/node": "catalog:types",
+        "prettier": "catalog:format",
+        "eslint": "catalog:lint"
     },
     "packageManager": "pnpm@12.6.0",
     "engines": {
         "node": ">=24",
         "pnpm": ">=12.6.0"
-    },
-    "dependencies": {
-        "next": "~16.1.6",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0"
     }
 }

@@ -7,6 +7,21 @@
         "**/*.code-search": true,
         "pnpm-lock.yaml": true
     },
-    "npmx.ignore.vulnerability": ["nx", "@nx/js"],
-    "cSpell.words": ["lufy", "nodenext", "smol"]
+    "npmx.ignore.vulnerability": [
+        "nx",
+        "@nx/js",
+        "@nx/next",
+        "@nx/node",
+        "@nx/eslint"
+    ],
+    "npmx.ignore.deprecation": ["eslint"],
+    "cSpell.words": [
+        "lufy",
+        "nodenext",
+        "postcss",
+        "smol",
+        "tailwindcss",
+        "unrs"
+    ],
+    "references.preferredLocation": "peek"
 }

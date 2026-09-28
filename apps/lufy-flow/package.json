@@ -1,0 +1,26 @@
+{
+    "name": "lufy-flow",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {
+        "next": "catalog:runtime",
+        "react": "catalog:runtime",
+        "react-dom": "catalog:runtime"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "catalog:build",
+        "tailwindcss": "catalog:build",
+        "typescript": "catalog:build",
+        "@types/node": "catalog:types",
+        "@types/react": "catalog:types",
+        "@types/react-dom": "catalog:types",
+        "eslint": "catalog:lint",
+        "eslint-config-next": "catalog:lint"
+    }
+}
