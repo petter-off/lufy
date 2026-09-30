@@ -1,8 +1,15 @@
-# Add files here to ignore them from prettier formatting
-/dist
-/coverage
-/.nx/cache
-/.nx/workspace-data
+# Build & tool output
+dist
+coverage
+test-output
+.next
+out
+
+# Nx
+.nx/cache
+.nx/workspace-data
 .nx/self-healing
-pnpm-lock.yaml
+
+# Generated
+next-env.d.ts
 pnpm-lock.yaml

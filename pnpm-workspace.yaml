@@ -19,6 +19,7 @@ catalogs:
     # Nx workspace tooling (@nx/* and nx share the same version)
     nx:
         '@nx/eslint': ^23.2.1
+        '@nx/jest': ^23.2.1
         '@nx/js': ^23.2.1
         '@nx/next': ^23.2.1
         '@nx/node': ^23.2.1
@@ -47,8 +48,19 @@ catalogs:
 
     # Linting
     lint:
+        '@typescript-eslint/rule-tester': ^8.58.0
+        '@typescript-eslint/utils': ^8.58.0
         eslint: ^9.8.0
         eslint-config-next: 16.3.6
+
+    test:
+        '@swc/jest': ~0.2.38
+        '@types/jest': ~30.0.0
+        jest: ~30.3.0
+        jest-environment-node: ~30.3.0
+        jest-util: ~30.3.0
+        ts-jest: ^29.4.7
+        ts-node: 10.9.1
 
     runtime:
         next: 16.3.6

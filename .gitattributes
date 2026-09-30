@@ -1,1 +1,18 @@
+# Normalize line endings (matches .prettierrc endOfLine and CI on Linux)
 * text=auto eol=lf
+
+# Lockfile — generated; easier merges, hide from language stats
+pnpm-lock.yaml linguist-generated=true
+
+# Binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary

@@ -16,12 +16,20 @@
     ],
     "npmx.ignore.deprecation": ["eslint"],
     "cSpell.words": [
+        "classpath",
+        "claude",
+        "github",
+        "libpeerconnection",
         "lufy",
         "nodenext",
         "postcss",
         "smol",
         "tailwindcss",
-        "unrs"
+        "testem",
+        "unrs",
+        "vercel",
+        "Vercel",
+        "webp"
     ],
     "references.preferredLocation": "peek"
 }

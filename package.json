@@ -2,10 +2,18 @@
     "name": "@lufy/source",
     "version": "1.0.0",
     "license": "MIT",
-    "scripts": {},
     "private": true,
+    "scripts": {
+        "dev": "nx dev @lufy/flow",
+        "build": "nx run-many -t build",
+        "lint": "nx run-many -t lint",
+        "test": "nx run-many -t test",
+        "format": "nx format:write",
+        "format:check": "nx format:check"
+    },
     "devDependencies": {
         "@nx/eslint": "catalog:nx",
+        "@nx/jest": "catalog:nx",
         "@nx/js": "catalog:nx",
         "@nx/next": "catalog:nx",
         "@nx/node": "catalog:nx",
@@ -17,7 +25,16 @@
         "typescript": "catalog:build",
         "@types/node": "catalog:types",
         "prettier": "catalog:format",
-        "eslint": "catalog:lint"
+        "@typescript-eslint/rule-tester": "catalog:lint",
+        "@typescript-eslint/utils": "catalog:lint",
+        "eslint": "catalog:lint",
+        "@swc/jest": "catalog:test",
+        "@types/jest": "catalog:test",
+        "jest": "catalog:test",
+        "jest-environment-node": "catalog:test",
+        "jest-util": "catalog:test",
+        "ts-jest": "catalog:test",
+        "ts-node": "catalog:test"
     },
     "packageManager": "pnpm@12.6.0",
     "engines": {
